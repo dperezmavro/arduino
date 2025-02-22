@@ -11,7 +11,6 @@
 #define PIN_SLOT_4_BTN 5
 #define PIN_SLOT_4_TOGGLE 10  // 16
 
-
 #define WAIT_BETWEEN_KEY_PRESS 150
 #define DEBOUNCE_TIME 50
 
@@ -39,12 +38,15 @@ ezButton slot_4(PIN_SLOT_4_BTN);
 void setup() {
   Serial.begin(9600);
 
-  pinMode(15, INPUT);
+  pinMode(PIN_SLOT_1_TOGGLE, INPUT);
+  pinMode(PIN_SLOT_2_TOGGLE, INPUT);
+  pinMode(PIN_SLOT_3_TOGGLE, INPUT);
+  pinMode(PIN_SLOT_4_TOGGLE, INPUT);
 
   // setup buttons
+  slot_1.setDebounceTime(DEBOUNCE_TIME);
   slot_2.setDebounceTime(DEBOUNCE_TIME);
   slot_3.setDebounceTime(DEBOUNCE_TIME);
-  slot_1.setDebounceTime(DEBOUNCE_TIME);
   slot_4.setDebounceTime(DEBOUNCE_TIME);
 
   // start kbd/mouse libraries
@@ -71,7 +73,7 @@ void loop() {
 
 void callStratagem(char primaryStratagem[], char secondaryStratagem[], int mode_pin) {
   int p = digitalRead(mode_pin);
-  char* s = p > 0 ? primaryStratagem : secondaryStratagem;
+  char *s = p > 0 ? primaryStratagem : secondaryStratagem;
   Serial.print(p);
   Serial.print(" ");
   Serial.println(s);
