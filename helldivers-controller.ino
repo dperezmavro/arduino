@@ -3,37 +3,37 @@
 #include <ezButton.h>
 
 #define PIN_SLOT_1_BTN 2
-#define PIN_SLOT_1_TOGGLE 10
+#define PIN_SLOT_1_TOGGLE 6
 #define PIN_SLOT_2_BTN 3
-#define PIN_SLOT_2_TOGGLE 10  // 14
+#define PIN_SLOT_2_TOGGLE 7
 #define PIN_SLOT_3_BTN 4
-#define PIN_SLOT_3_TOGGLE 10  // 15
+#define PIN_SLOT_3_TOGGLE 8
 #define PIN_SLOT_4_BTN 5
-#define PIN_SLOT_4_TOGGLE 10  // 16
+#define PIN_SLOT_4_TOGGLE 9
 
-#define WAIT_BETWEEN_KEY_PRESS 150
-#define DEBOUNCE_TIME 50
+#define WAIT_BETWEEN_KEY_PRESS 100
+#define DEBOUNCE_TIME 25
 
 // button 1
 const char reinforceCode[] = "wsdaw";
-const char resupplyCode[] = "sswd";
+const char stalwartCode[] = "saswwa";
 
 // button 2
-const char stalwartCode[] = "saswwa";
-const char machineGunCode[] = "saswd";
+const char resupplyCode[] = "sswd";
+const char guardDogRoverCode[] = "saswass";
 
 // button 3
-const char guardDogRoverCode[] = "saswass";
 const char sentryAutocannonCode[] = "swdwaw";
+const char machineGunCode[] = "saswd";
 
 // button 4
-const char eagleNapalmAirstrikeCode[] = "wdsw";
 const char fiveHundredKgAirstrikeCode[] = "wdsss";
+const char eagleNapalmAirstrikeCode[] = "wdsw";
 
-ezButton slot_1(PIN_SLOT_1_BTN);
-ezButton slot_2(PIN_SLOT_2_BTN);
-ezButton slot_3(PIN_SLOT_3_BTN);
-ezButton slot_4(PIN_SLOT_4_BTN);
+ezButton slot_1(PIN_SLOT_1_BTN, INPUT_PULLUP);
+ezButton slot_2(PIN_SLOT_2_BTN, INPUT_PULLUP);
+ezButton slot_3(PIN_SLOT_3_BTN, INPUT_PULLUP);
+ezButton slot_4(PIN_SLOT_4_BTN, INPUT_PULLUP);
 
 void setup() {
   Serial.begin(9600);
@@ -55,8 +55,8 @@ void setup() {
 }
 
 void loop() {
-  slot_2.loop();
   slot_1.loop();
+  slot_2.loop();
   slot_3.loop();
   slot_4.loop();
 
@@ -65,7 +65,7 @@ void loop() {
   } else if (slot_2.isPressed()) {
     callStratagem(resupplyCode, guardDogRoverCode, PIN_SLOT_2_TOGGLE);
   } else if (slot_3.isPressed()) {
-    callStratagem(sentryAutocannonCode, sentryAutocannonCode, PIN_SLOT_3_TOGGLE);
+    callStratagem(sentryAutocannonCode, machineGunCode, PIN_SLOT_3_TOGGLE);
   } else if (slot_4.isPressed()) {
     callStratagem(fiveHundredKgAirstrikeCode, eagleNapalmAirstrikeCode, PIN_SLOT_4_TOGGLE);
   }
@@ -77,7 +77,7 @@ void callStratagem(char primaryStratagem[], char secondaryStratagem[], int mode_
   Serial.print(p);
   Serial.print(" ");
   Serial.println(s);
-  // return;
+  return;
 
   Keyboard.press(KEY_LEFT_CTRL);
   delay(WAIT_BETWEEN_KEY_PRESS);
