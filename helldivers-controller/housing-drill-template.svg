@@ -9,6 +9,10 @@
     <circle cx="30" cy="11" r="2" fill="white" stroke="black" stroke-width="0.1" />
     <circle cx="50" cy="11" r="2" fill="white" stroke="black" stroke-width="0.1" />
     <circle cx="65" cy="11" r="2" fill="white" stroke="black" stroke-width="0.1" />
+    <rect x="8.5" y="25" width="13" height="13" fill="white" stroke="black" stroke-width="0.1" />
+    <rect x="23.5" y="25" width="13" height="13" fill="white" stroke="black" stroke-width="0.1" />
+    <rect x="43.5" y="25" width="13" height="13" fill="white" stroke="black" stroke-width="0.1" />
+    <rect x="58.5" y="25" width="13" height="13" fill="white" stroke="black" stroke-width="0.1" />
     <line x1="3" y1="5" x2="7" y2="5" stroke="black" stroke-width="0.1" />
     <line x1="5" y1="3" x2="5" y2="7" stroke="black" stroke-width="0.1" />
     <line x1="73" y1="5" x2="77" y2="5" stroke="black" stroke-width="0.1" />
