@@ -2,14 +2,14 @@
 #include <Mouse.h>
 #include <ezButton.h>
 
-#define PIN_SLOT_1_BTN 2
-#define PIN_SLOT_1_TOGGLE 6
-#define PIN_SLOT_2_BTN 3
-#define PIN_SLOT_2_TOGGLE 7
-#define PIN_SLOT_3_BTN 4
-#define PIN_SLOT_3_TOGGLE 8
-#define PIN_SLOT_4_BTN 5
-#define PIN_SLOT_4_TOGGLE 9
+#define PIN_SLOT_1_BTN 5
+#define PIN_SLOT_1_TOGGLE 9
+#define PIN_SLOT_2_BTN 4
+#define PIN_SLOT_2_TOGGLE 8
+#define PIN_SLOT_3_BTN 3
+#define PIN_SLOT_3_TOGGLE 7
+#define PIN_SLOT_4_BTN 2
+#define PIN_SLOT_4_TOGGLE 6
 
 #define WAIT_BETWEEN_KEY_PRESS 100
 #define DEBOUNCE_TIME 25
